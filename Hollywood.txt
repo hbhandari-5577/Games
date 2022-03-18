@@ -1,0 +1,116 @@
+import java.util.*;
+import java.util.Random;
+public class man
+{
+    public static void main(String[] args)
+    {
+        Scanner sc= new Scanner(System.in);
+        String movie="godfather";
+        int x=0,y=0,r=1,w=0;
+        movie=movie.toUpperCase();
+        System.out.println("Welcome to The Movie Game");
+        char[] fd = new char[100];
+        fd[0]='B';
+        fd[1]='O';
+        fd[2]='L';
+        fd[3]='L';
+        fd[4]='Y';
+        fd[5]='W';
+        fd[6]='O';
+        fd[7]='O';
+        fd[8]='D';
+        char[] rmovie = new char[1000];
+        int a=0/*consonant*/,b=0/*dashes*/,v=0/*checking _ correct input or not*/,d=0;
+        int ac;
+        int ml=movie.length();
+        char guess;
+        while(x!=9)
+        {
+            if(r==1)
+            {
+                for(int j=0;j<1000;j++)
+                {
+                    rmovie[j]='*';
+                }
+                r=0;
+            }
+            for(int i=0;i<movie.length();i++)
+            {
+                if((movie.charAt(i)=='A')||(movie.charAt(i)=='E')||(movie.charAt(i)=='I')||(movie.charAt(i)=='O')||(movie.charAt(i)=='U')||(movie.charAt(i)==' '))
+                {
+                    rmovie[i]=movie.charAt(i);
+                }
+                else
+                {
+                    rmovie[i]='_';
+                    a++;
+                }
+            }
+            for(int i=0;i<movie.length();i++)
+            {
+                System.out.printf("%c ",rmovie[i]);
+            }
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println("BOLLYWOOD");
+            v=0;
+            while(b<a)
+            {
+                while((movie.charAt(v)=='A')||(movie.charAt(v)=='E')||(movie.charAt(v)=='I')||(movie.charAt(v)=='O')||(movie.charAt(v)=='U'))
+                {
+                    v++;
+                }
+                guess='0';
+                guess=sc.next().charAt(0);
+                guess=Character.toUpperCase(guess);
+                if((movie.charAt(v)==guess)&&(rmovie[v]=='_'))
+                {
+                    rmovie[v]=(char)guess;
+                    v++;
+                    b++;
+                }
+                else
+                {
+                System.out.println("Incorrect Word");
+                for(int k=0;k<=w;k++)
+                {
+                if(k==w)
+                {
+                    fd[k]='*';
+                }
+            }
+            for(int k=0;k<9;k++)
+            {
+                System.out.printf("%c",fd[k]);
+            }
+            System.out.println();
+            System.out.println();
+            w++;
+        }
+        if(w>=9)
+        {
+            b=a+5;
+        }
+        for(int i=0;i<movie.length();i++)
+        {
+            System.out.printf("%c ",rmovie[i]);
+        }
+        System.out.println();
+        System.out.println();
+        }
+        if(b==a)
+        {
+            System.out.println("You Win");
+        }
+        else
+        {
+            System.out.println("Game Over");
+            System.out.println("Correct Movie was:"+" "+movie);
+        }
+        System.out.println();
+        x=9;
+        }
+    }
+}
